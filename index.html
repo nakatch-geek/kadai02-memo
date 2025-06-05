@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>習慣化アプリ</title>
+    <link rel="stylesheet" href="css/style.css">  <!-- CSSフォルダ内のstyle.cssを参照 -->
+</head>
+<body>
+    <div class="container">
+        <h1>習慣化アプリ</h1>
+
+        <div class="input-area card">
+            <h2>新しい習慣を登録</h2>
+            <!-- メッセージ表示領域 -->
+            <div id="message-area" class="message-area" style="display: none;"></div>
+            <h3 class="detail-input-header">詳細入力:</h3>
+            <div class="item-details-input">
+                <div>
+                    <label for="item-category">習慣化項目カテゴリ:</label>
+                    <select id="item-category">
+                        <option value="Mindfulness">Mindfulness</option>
+                        <option value="Healthier">Healthier</option>
+                        <option value="Assets">Assets</option>
+                        <option value="Dream a Dream">Dream a Dream</option>
+                        <option value="Free">Free</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="item-period">周期:</label>
+                    <select id="item-period">
+                        <option value="dayly">dayly (毎日)</option>
+                        <option value="weekly">weekly (毎週)</option>
+                        <option value="bi-weekly">bi-weekly (隔週)</option>
+                        <option value="monthly">monthly (毎月)</option>
+                        <option value="Quaterly">Quaterly (四半期毎)</option>
+                        <option value="Yearly">Yearly (毎年)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="item-frequency">回数:</label>
+                    <input type="number" id="item-frequency" value="1" min="1">
+                    <p id="frequency-hint" class="input-hint small-hint"></p>
+                </div>
+
+                <div>
+                    <label for="item-content">内容 (実施すること):</label>
+                    <textarea id="item-content" rows="3" placeholder="例: 10分間読書する"></textarea>
+                </div>
+
+                <div>
+                    <label for="item-trigger">きっかけ (いつやるか):</label>
+                    <textarea id="item-trigger" rows="2" placeholder="例: ランチ休憩後"></textarea>
+                </div>
+
+                <div>
+                    <label for="item-start-timing">開始タイミング:</label>
+                    <input type="text" id="item-start-timing" placeholder="周期に応じて入力">
+                    <p id="start-timing-hint" class="input-hint small-hint"></p>
+                </div>
+                <button id="add-item-btn-detail" class="btn btn-primary">詳細入力で登録</button>
+            </div>
+        </div>
+
+        <div class="controls-area card">
+            <h2>コントロール</h2>
+            <div>
+                <label for="achievement-display-type">達成度表示:</label>
+                <select id="achievement-display-type">
+                    <option value="count">回数 (例: 3/5)</option>
+                    <option value="percentage">％ (例: 60%)</option>
+                    <option value="signal">信号 (例: ●)</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="sort-by">ソート:</label>
+                <select id="sort-by">
+                    <option value="default">登録順</option>
+                    <option value="category-asc">習慣化項目 (昇順)</option>
+                    <option value="category-desc">習慣化項目 (降順)</option>
+                    <option value="period-asc">周期 (昇順)</option>
+                    <option value="period-desc">周期 (降順)</option>
+                    <option value="achievement-asc">達成度 (低い順)</option>
+                    <option value="achievement-desc">達成度 (高い順)</option>
+                </select>
+            </div>
+            <button id="delete-all-btn" class="btn btn-danger">全項目削除</button>
+        </div>
+
+        <div class="list-area card">
+            <h2>習慣リスト (<span id="habit-count">0</span>/100件)</h2>
+            <ul id="habit-list">
+                </ul>
+        </div>
+    </div>
+
+    <!-- カスタム確認モーダル -->
+    <div id="custom-confirm-modal" class="modal-overlay"> <!-- ★インラインの style="display: none;" を削除 -->
+        <div class="modal-content">
+            <p id="custom-confirm-message"></p>
+            <div class="modal-actions">
+                <button id="custom-confirm-yes" class="btn btn-danger">はい</button>
+                <button id="custom-confirm-no" class="btn btn-secondary">いいえ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script> <!-- jsフォルダ内のmain.jsを参照 -->
+</body>
+</html>
+

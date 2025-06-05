@@ -1,0 +1,406 @@
+/* 基本スタイル */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f2f5; /* 背景画像が読み込めない場合のフォールバック */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    /* 背景画像の設定 (imgフォルダ内のcosmos.jpgを参照) */
+    background-image: url('../img/cosmos.jpg'); /* CSSファイルからの相対パス */
+    background-size: cover; /* 画像を要素全体に表示 */
+    background-position: center center; /* 画像を中央に配置 */
+    background-repeat: no-repeat; /* 画像の繰り返しを無効 */
+    background-attachment: fixed; /* スクロールしても背景を固定 */
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* カードスタイルは背景画像とのコントラストを考慮して調整が必要な場合があります */
+.card {
+    background-color: rgba(255, 255, 255, 0.50); /* カードの背景の透明度を調整 (例: 0.92 -> 0.85) */
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+
+h1, h2, h3 {
+    color: #333;
+    margin-bottom: 0.8em;
+}
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-shadow: 0px 0px 3px rgba(255,255,255,0.5); /* 文字の視認性向上のため薄い影を追加 */
+}
+h2 {
+    font-size: 1.8em;
+    border-bottom: 2px solid rgba(127, 140, 141, 0.7); /* 区切り線も少し透明に */
+    padding-bottom: 0.3em;
+    color: #34495e; /* 見出しの色を少し濃いめに */
+}
+h3.detail-input-header {
+    margin-top: 25px;
+    font-size: 1.3em;
+    color: #34495e;
+}
+
+/* メッセージ表示エリア */
+.message-area {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.95em;
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.9); /* メッセージエリアも少し透明に */
+}
+.message-success {
+    background-color: rgba(209, 231, 221, 0.9); /* successメッセージの背景も調整 */
+    color: #0f5132;
+    border-color: #badbcc;
+}
+.message-error {
+    background-color: rgba(248, 215, 218, 0.9); /* errorメッセージの背景も調整 */
+    color: #842029;
+    border-color: #f5c2c7;
+}
+.message-info {
+    background-color: rgba(207, 244, 252, 0.9); /* infoメッセージの背景も調整 */
+    color: #055160;
+    border-color: #b6effb;
+}
+
+
+/* 入力フィールドとボタン */
+textarea, input[type="text"], input[type="number"], select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.75); /* 入力フィールドの背景透明度を調整 (例: 0.8 -> 0.75) */
+}
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    background-color: rgba(255, 255, 255, 0.9); /* フォーカス時の背景も調整 */
+}
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn {
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 5px;
+    margin-right: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* ボタンに少し影を追加 */
+}
+.btn:hover {
+    opacity: 0.85; /* ホバー時の透明度を少し調整 */
+}
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-primary { background-color: #3498db; }
+.btn-primary:hover { background-color: #2980b9; }
+.btn-danger { background-color: #e74c3c; }
+.btn-danger:hover { background-color: #c0392b; }
+.btn-warning { background-color: #f39c12; }
+.btn-warning:hover { background-color: #e67e22; }
+.btn-success { background-color: #2ecc71; }
+.btn-success:hover { background-color: #27ae60; }
+.btn-secondary { background-color: #6c757d; }
+.btn-secondary:hover { background-color: #5a6268; }
+
+
+.input-hint {
+    font-size: 0.9em;
+    color: #5f6c6d; 
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(236, 240, 241, 0.8); /* ヒントの背景透明度を調整 (例: 0.85 -> 0.8) */
+    border: 1px dashed rgba(189, 195, 199, 0.7); /* 枠線も少し透明に */
+    border-radius: 4px;
+}
+.small-hint {
+    font-size: 0.8em;
+    padding: 5px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    border: none;
+    color: #555;
+}
+
+.item-details-input div {
+    margin-bottom: 15px;
+}
+.item-details-input label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #4a5568; /* ラベルの文字色を少し調整 */
+}
+
+/* コントロールエリア */
+.controls-area div {
+    margin-bottom: 15px;
+}
+.controls-area label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* 習慣リスト */
+#habit-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.habit-item {
+    background-color: rgba(249, 250, 251, 0.88); /* リストアイテムの背景透明度を調整 (例: 0.9 -> 0.88) */
+    border: 1px solid #e0e0e0;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.habit-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    background-color: rgba(255, 255, 255, 0.95); /* ホバー時は少し不透明に */
+}
+
+.habit-item.completed-habit {
+    background-color: rgba(230, 255, 240, 0.88); /* 達成済み項目の背景色 */
+    border-left: 5px solid #2ecc71;
+}
+.habit-item.completed-habit .item-header .item-category-display {
+    text-decoration: line-through;
+    color: #7f8c8d;
+}
+
+
+.habit-item .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.item-header-main {
+    display: flex;
+    align-items: center;
+}
+.habit-item .item-mark {
+    font-size: 1.6em;
+    margin-right: 12px;
+    color: #3498db;
+}
+.habit-item.completed-habit .item-mark {
+    color: #2ecc71;
+}
+
+.habit-item .item-category-display {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #2c3e50;
+}
+.habit-item .item-content-display {
+    font-size: 1.1em;
+    color: #34495e;
+    margin-left: 8px;
+}
+
+
+.habit-item .item-details {
+    font-size: 0.95em;
+    color: #4a5568; 
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.habit-item .item-details p {
+    margin: 6px 0;
+    display: flex;
+    align-items: center;
+}
+.habit-item .item-details strong {
+    min-width: 100px; 
+    display: inline-block;
+    color: #34495e;
+}
+
+.habit-item .actions {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    gap: 10px;
+}
+.habit-item .actions .progress-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.habit-item .actions .progress-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+.habit-item .actions .mark-habituated-label {
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.habit-item .actions .mark-habituated-checkbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.achievement-display {
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 6px;
+    min-width: 70px;
+    text-align: center;
+    font-size: 1em;
+    background-color: rgba(236, 240, 241, 0.8); /* 達成度表示の背景透明度を調整 (例: 0.85 -> 0.8) */
+    color: #2c3e50;
+}
+
+.signal-display {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.signal-red { background-color: #e74c3c; }
+.signal-yellow { background-color: #f1c40f; }
+.signal-blue { background-color: #3498db; }
+.signal-green { background-color: #2ecc71; }
+
+/* カスタム確認モーダル スタイル */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.65); /* 背景オーバーレイを少し濃く */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.97); /* モーダルの背景もわずかに透明度を持たせる */
+    padding: 30px 35px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    font-size: 1.15em;
+    color: #333;
+}
+.modal-actions button {
+    margin: 0 8px;
+    padding: 10px 25px;
+}
+
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; 
+    }
+    .container {
+        width: 98%; 
+    }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+
+    .habit-item .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .achievement-display {
+        margin-top: 8px;
+        align-self: flex-end;
+    }
+    .actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .btn {
+        padding: 12px 15px;
+    }
+    .item-details-input .btn-primary, .controls-area .btn-danger {
+         width: 100%;
+         margin-right: 0;
+    }
+
+    .controls-area div {
+        display: flex;
+        flex-direction: column;
+    }
+    .controls-area label {
+        margin-bottom: 5px;
+    }
+    select {
+        width: 100%;
+    }
+    .modal-content {
+        width: 85%;
+    }
+}
